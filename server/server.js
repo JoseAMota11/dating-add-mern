@@ -2,11 +2,13 @@ import express from 'express'
 import mongoose from 'mongoose'
 import Cors from 'cors'
 import Cards from './dbCards.js'
+import dotenv from 'dotenv'
 
 // App Config
+dotenv.config()
 const app = express()
-const port = process.env.PORT || 8001
-const connection_url = 'mongodb+srv://admin:1234@cluster0.llhqi.mongodb.net/?retryWrites=true&w=majority'
+const port = process.env.PORT
+const connection_url = process.env.MONGO_URL
 
 // Middleware
 app.use(express.json())
